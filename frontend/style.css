@@ -1,0 +1,213 @@
+:root {
+    --primary-color: #9c88ff;
+    --secondary-color: #f7f7f7;
+    --text-color: #333;
+    --bg-color: #f0f2f5;
+    --card-bg: #fff;
+    --danger-color: #c0392b;
+    --success-color: #2ecc71;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to allow scrolling */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.balance-container {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    display: inline-block;
+    min-width: 300px;
+}
+
+.balance-container h2 {
+    margin: 10px 0 0;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-container, .history-container {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+h3 {
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-control input, .form-control select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.form-control input:focus, .form-control select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #8e7bf0;
+}
+
+/* List Styles */
+.list {
+    list-style-type: none;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 5px; /* For scrollbar */
+}
+
+.list li {
+    background-color: #fff;
+    border-left: 5px solid var(--primary-color); /* Default border */
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    padding: 15px; /* Increased padding */
+    margin-bottom: 10px;
+    border-radius: 5px; /* Rounded corners */
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow per item */
+    transition: transform 0.2s;
+}
+
+.list li:hover {
+    transform: translateY(-2px);
+}
+
+/* Category Colors */
+.list li.food { border-left-color: #e67e22; }
+.list li.travel { border-left-color: #3498db; }
+.list li.rent { border-left-color: #e74c3c; }
+.list li.shopping { border-left-color: #9b59b6; }
+.list li.other { border-left-color: #95a5a6; }
+
+.expense-info {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.expense-info strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 3px;
+}
+
+.expense-info span {
+    font-size: 0.85em;
+    color: #777;
+    margin-right: 10px;
+}
+
+.expense-amount {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--danger-color);
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.delete-btn, .edit-btn {
+    cursor: pointer;
+    background-color: transparent; /* Clean look */
+    border: 0;
+    font-size: 18px; /* Slightly larger icons */
+    line-height: 1; /* Reset line-height */
+    padding: 5px; /* Add tap target size */
+    opacity: 0.6; /* Subtle by default */
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.delete-btn { color: var(--danger-color); }
+.edit-btn { color: var(--primary-color); }
+
+.delete-btn:hover, .edit-btn:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Slight grow effect */
+}
